@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Districts Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link href="https://cdn.maptiler.com/maptiler-geocoding-control/v1.2.0/style.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="map"></div>
+    <div class="menu-box">
+        <div id="mySidenav" class="sidenav">
+            <ul class="list">
+                <li><a onclick="showDistrictMap('mh')">Maharashtra</a></li>
+                <li><a>&nbsp;</a></li>
+                <li><a onclick="showDistrictMap('akola')">Akola</a></li>
+                <li><a onclick="showDistrictMap('ahmednagar')">Ahmednagar</a></li>
+                <li><a onclick="showDistrictMap('amaravati')">Amaravati</a></li> 
+                <li><a onclick="showDistrictMap('aurangabad')">Chh. Sambhajinagar</a></li> 
+                <li><a onclick="showDistrictMap('beed')">Beed</a></li> 
+                <li><a onclick="showDistrictMap('bhandara')">Bhandara</a></li>
+                <li><a onclick="showDistrictMap('buldhana')">Buldhana</a></li> 
+                <li><a onclick="showDistrictMap('chandrapur')">Chandrapur</a></li>
+                <li><a onclick="showDistrictMap('usmanabad')">Dharashiv</a></li>
+                <li><a onclick="showDistrictMap('dhule')">Dhule</a></li>
+                <li><a onclick="showDistrictMap('gadchiroli')">Gadchiroli</a></li>
+                <li><a onclick="showDistrictMap('gondia')">Gondia</a></li>
+                <li><a onclick="showDistrictMap('hingoli')">Hingoli</a></li>
+                <li><a onclick="showDistrictMap('jalgaon')">Jalgaon</a></li> 
+                <li><a onclick="showDistrictMap('jalna')">Jalna</a></li> 
+                <li><a onclick="showDistrictMap('kolhapur')">Kolhapur</a></li>
+                <li><a onclick="showDistrictMap('latur')">Latur</a></li>
+                <li><a onclick="showDistrictMap('mumbai')">Mumbai</a></li>
+                <li><a onclick="showDistrictMap('mumbai_sub')">Mumbai Sub</a></li>
+                <li><a onclick="showDistrictMap('nagpur')">Nagpur</a></li>
+                <li><a onclick="showDistrictMap('nanded')">Nanded</a></li> 
+                <li><a onclick="showDistrictMap('nandurbar')">Nandurbar</a></li> 
+                <li><a onclick="showDistrictMap('nashik')">Nashik</a></li>
+                <li><a onclick="showDistrictMap('palghar')">Palghar</a></li>
+                <li><a onclick="showDistrictMap('parbhani')">Parbhani</a></li>
+                <li><a onclick="showDistrictMap('pune')">Pune</a></li>
+                <li><a onclick="showDistrictMap('raigad')">Raigad</a></li>
+                <li><a onclick="showDistrictMap('ratnagiri')">Ratnagiri</a></li>
+                <li><a onclick="showDistrictMap('sangli')">Sangli</a></li>
+                <li><a onclick="showDistrictMap('satara')">Satara</a></li>
+                <li><a onclick="showDistrictMap('sindhudurg')">Sindhudurg</a></li>
+                <li><a onclick="showDistrictMap('solapur')">Solapur</a></li>
+                <li><a onclick="showDistrictMap('thane')">Thane</a></li>
+                <li><a onclick="showDistrictMap('wardha')">Wardha</a></li>
+                <li><a onclick="showDistrictMap('washim')">Washim</a></li>
+                <li><a onclick="showDistrictMap('yavatmal')">Yavatmal</a></li>
+            </ul>
+            <a id="close-menu-btn" class="menu-close-button" onclick="closeNav()">&times;</a>
+        </div>
+        <span class="menu-icon" onclick="openNav()">&#9776; Menu </span>
+    </div>
+</body>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.maptiler.com/maptiler-geocoding-control/v1.2.0/leaflet.umd.js"></script>
+<script src="cords-data/cords-data-mh.js"></script>
+<script src="cords-data/cords-data-ahmednagar.js"></script>
+<script src="cords-data/cords-data-dhule.js"></script>
+<script src="cords-data/cords-data-kolhapur.js"></script>
+<script src="cords-data/cords-data-mumbai.js"></script>
+<script src="cords-data/cords-data-mumbai-sub.js"></script>
+<script src="cords-data/cords-data-nashik.js"></script>
+<script src="cords-data/cords-data-palghar.js"></script>
+<script src="cords-data/cords-data-pune.js"></script>
+<script src="cords-data/cords-data-raigad.js"></script>
+<script src="cords-data/cords-data-ratnagiri.js"></script>
+<script src="cords-data/cords-data-sangli.js"></script>
+<script src="cords-data/cords-data-satara.js"></script>
+<script src="cords-data/cords-data-sindhudurg.js"></script>
+<script src="cords-data/cords-data-solapur.js"></script>
+<script src="cords-data/cords-data-thane.js"></script>
+<script src="cords-data/cords-data-akola.js"></script> 
+<script src="cords-data/cords-data-amaravati.js"></script> 
+<script src="cords-data/cords-data-aurangabad.js"></script> 
+<script src="cords-data/cords-data-beed.js"></script> 
+<script src="cords-data/cords-data-bhandara.js"></script>
+<script src="cords-data/cords-data-buldhana.js"></script> 
+<script src="cords-data/cords-data-chandrapur.js"></script>
+<script src="cords-data/cords-data-gadchiroli.js"></script>
+<script src="cords-data/cords-data-gondia.js"></script>
+<script src="cords-data/cords-data-hingoli.js"></script>
+<script src="cords-data/cords-data-jalgaon.js"></script> 
+<script src="cords-data/cords-data-jalna.js"></script> 
+<script src="cords-data/cords-data-latur.js"></script>
+<script src="cords-data/cords-data-nagpur.js"></script>
+<script src="cords-data/cords-data-nanded.js"></script> 
+<script src="cords-data/cords-data-nandurbar.js"></script> 
+<script src="cords-data/cords-data-parbhani.js"></script>
+<script src="cords-data/cords-data-usmanabad.js"></script>
+<script src="cords-data/cords-data-wardha.js"></script>
+<script src="cords-data/cords-data-washim.js"></script>
+<script src="cords-data/cords-data-yavatmal.js"></script>
+
+<script src="js/geojson.js"></script>
+
+</html>

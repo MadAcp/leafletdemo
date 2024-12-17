@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>Vector Tiles in Leaflet JS</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.umd.js"></script>
+    <link href="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.css" rel="stylesheet" />
+    <script src="https://cdn.maptiler.com/leaflet-maptilersdk/v2.0.0/leaflet-maptilersdk.js"></script>
+    <style>
+      #map {position: absolute; top: 0; right: 0; bottom: 0; left: 0;}
+      #buttons {
+        width: auto;
+        margin: 0 1em;
+        padding:0;
+        position:absolute;
+        top:0;
+        right:0;
+        z-index:1000;
+      }
+      .button {
+        display: block;
+        position: relative;
+        cursor: pointer;
+        width: auto;
+        padding: 8px;
+        border-radius: 3px;
+        margin: 10px 0 0 0;
+        font-size: 12px;
+        text-align: center;
+        color: #fff;
+        background: #3174ff;
+        font-family: sans-serif;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <ul id="buttons">
+      <li id="HINDI" class="button">Hindi</li>
+      <li id="ARABIC" class="button">Arabic</li>
+      <li id="CZECH" class="button">Czech</li>
+      <li id="ENGLISH" class="button">English</li>
+      <li id="FRENCH" class="button">French</li>
+      <li id="GERMAN" class="button">German</li>
+      <li id="JAPANESE" class="button">Japanese</li>
+      <li id="SPANISH" class="button">Spanish</li>
+      <li id="UKRAINIAN" class="button">Ukrainian</li>
+    </ul>
+    <script>
+      const key = 'NrkwVsgcuyrvP4WtMKGT';
+
+      const map = L.map('map').setView([50, 20], 3);
+      const mtLayer = L.maptilerLayer({
+        apiKey: key,
+        style: L.MaptilerStyle.STREETS, // optional
+        language: L.maptilerLanguage.HINDI, //change the default language
+      }).addTo(map);
+
+      document.getElementById('buttons').addEventListener('click', function (event) {
+        // Retrieve language based on button id
+        mtLayer.setLanguage(L.maptilerLanguage[event.target.id]);
+      });
+    </script>
+  </body>
+</html>
